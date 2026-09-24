@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Arquivos de apresentação e slides locais (para manter repositório leve)
+*.pdf
+
+# Backups e temporários
+*.tmp
+*.bak
+*~
+
+# IDEs
+.vscode/
+.idea/

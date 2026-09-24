@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histologia 360° — Guia Descomplicado, Flashcards & Game</title>
+  <meta name="description" content="Aprenda toda a histologia do seu curso com resumos explicados para 15 anos, arena de jogos e flashcards estilo Anki.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement / XP Bar -->
+  <header class="app-header" id="app-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-icon">🔬</div>
+        <div class="brand-text">
+          <h1>HISTOLOGIA <span class="brand-highlight">360°</span></h1>
+          <p class="brand-subtitle">Resumos Descomplicados, Flashcards & Arena de Jogos</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Live XP / Gamification -->
+        <div class="xp-pill" id="xp-pill" title="Seus pontos de experiência no estudo!">
+          <span class="xp-icon">⚡</span>
+          <span class="xp-value" id="user-xp">0 XP</span>
+          <span class="xp-rank-badge" id="user-rank">Novato</span>
+        </div>
+
+        <!-- Audio Toggle -->
+        <button class="icon-btn" id="audio-toggle-btn" aria-label="Ligar ou desligar som" title="Ligar/Desligar Efeitos Sonoros">
+          <span id="audio-icon">🔊</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <div class="theme-switch-wrapper">
+          <button class="icon-btn" id="theme-toggle-btn" aria-label="Alternar tema visual" title="Alternar Tema (Dark / H&E Violeta / Claro)">
+            <span id="theme-icon">🎨</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+      <div class="nav-container">
+        <button class="nav-tab active" data-tab="tab-resumos" id="tab-btn-resumos">
+          <span class="tab-icon">📖</span> Resumos (Estilo 15 Anos)
+        </button>
+        <button class="nav-tab" data-tab="tab-game" id="tab-btn-game">
+          <span class="tab-icon">🎮</span> Battle Arena (O Jogo)
+        </button>
+        <button class="nav-tab" data-tab="tab-flashcards" id="tab-btn-flashcards">
+          <span class="tab-icon">⚡</span> Flashcards (Anki)
+        </button>
+        <button class="nav-tab" data-tab="tab-mnemonicos" id="tab-btn-mnemonicos">
+          <span class="tab-icon">🧠</span> Macetes & Mnemônicos
+        </button>
+        <a href="../TBL/index.html" class="nav-tab" style="text-decoration:none; background: linear-gradient(135deg, #ef4444 0%, #f59e0b 50%, #10b981 100%); color: #fff; font-weight: 700; box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);" title="Acessar Especial TBL: Tecido Muscular & Reparo Tecidual">
+          <span class="tab-icon">🔥</span> Especial TBL: Músculo & Reparo
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="app-main" id="app-main">
+
+    <!-- ================= TAB 1: RESUMOS DESCOMPLICADOS ================= -->
+    <section class="tab-content active" id="tab-resumos">
+      <div class="content-header-banner">
+        <div class="banner-text">
+          <h2>Histologia sem Enrolação: Entenda como se tivesse 15 anos!</h2>
+          <p>Esqueça os textos secos e indecifráveis. Aqui você aprende as <strong>6 aulas do curso</strong> com analogias do dia a dia (videogames, cidades, equipes de elite), mas mantendo <strong>todos os termos técnicos em negrito</strong> para você gabaritar as provas!</p>
+        </div>
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="summary-search-input" placeholder="Buscar qualquer termo (ex: desmossomo, Havers, adipócito, merócrina)..." autocomplete="off">
+          <button class="clear-search-btn" id="summary-search-clear" style="display:none;">✕</button>
+        </div>
+      </div>
+
+      <!-- Quick Lecture Filter Pills -->
+      <div class="lecture-filter-pills" id="lecture-filter-pills">
+        <button class="filter-pill active" data-filter="all">Todas as 6 Aulas</button>
+        <button class="filter-pill" data-filter="aula-1">Aula 1: A Célula & Vida</button>
+        <button class="filter-pill" data-filter="aula-2">Aula 2: Epitélio de Revestimento</button>
+        <button class="filter-pill" data-filter="aula-3">Aula 3: Epitélio Glandular & Fisio</button>
+        <button class="filter-pill" data-filter="aula-4">Aula 4: Tecido Conjuntivo</button>
+        <button class="filter-pill" data-filter="aula-5-cart">Aula 5: Cartilagem</button>
+        <button class="filter-pill" data-filter="aula-5-osso">Aula 5: Tecido Ósseo</button>
+      </div>
+
+      <!-- Summary Cards Container (Dynamically rendered & searchable) -->
+      <div class="summaries-grid" id="summaries-container">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+
+
+    <!-- ================= TAB: BATTLE ARENA (O JOGO) ================= -->
+    <section class="tab-content" id="tab-game">
+      <div class="game-container" id="game-container">
+        
+        <!-- Game Mode Selection Screen -->
+        <div class="game-screen active" id="game-screen-menu">
+          <div class="arena-hero">
+            <div class="arena-badge">ARENA DE COMBATE HISTOLÓGICO</div>
+            <h2>Desafie o seu Cérebro e Vire um Mestre das Lâminas!</h2>
+            <p>Teste seus conhecimentos com perguntas dinâmicas, casos práticos de laboratório e pegadinhas clássicas de prova.</p>
+          </div>
+
+          <div class="game-mode-cards">
+            <!-- Mode 1: Trilha das 6 Aulas -->
+            <div class="mode-card" data-mode="campaign" id="mode-campaign-btn">
+              <div class="mode-icon">🗺️</div>
+              <div class="mode-tag">Modo Trilha</div>
+              <h3>A Jornada das 6 Aulas</h3>
+              <p>Avance fase por fase: da Teoria Celular ao Tecido Ósseo. Ganhe estrelas e desbloqueie títulos acadêmicos!</p>
+              <ul class="mode-perks">
+                <li>✓ 6 Fases com dificuldade progressiva</li>
+                <li>✓ 3 Vidas para tentar</li>
+                <li>✓ Explicação detalhada a cada acerto ou erro</li>
+              </ul>
+              <button class="primary-btn pulse">Jogar Modo Trilha</button>
+            </div>
+
+            <!-- Mode 2: Batalha Rápida Contra o Tempo -->
+            <div class="mode-card" data-mode="blitz" id="mode-blitz-btn">
+              <div class="mode-icon">⚡</div>
+              <div class="mode-tag hot">Adrenalina</div>
+              <h3>Batalha Rápida (Blitz)</h3>
+              <p>Você tem 60 segundos para responder o máximo de perguntas certeiras. Cada acerto consecutivo ativa um Multiplicador de Combo!</p>
+              <ul class="mode-perks">
+                <li>✓ Relógio de 60 segundos</li>
+                <li>✓ Multiplicadores de Combo 2x, 3x, 4x</li>
+                <li>✓ Perguntas aleatórias de todo o conteúdo</li>
+              </ul>
+              <button class="primary-btn">Iniciar Blitz</button>
+            </div>
+
+            <!-- Mode 3: Casos Clínicos -->
+            <div class="mode-card" data-mode="clinic" id="mode-clinic-btn">
+              <div class="mode-icon">🩺</div>
+              <div class="mode-tag gold">Desafio Pro</div>
+              <h3>Casos Clínicos & Práticos</h3>
+              <p>Encare situações de pacientes reais: fraturas ósseas, cicatrização de queimaduras, osteoporose e biópsias glandulares.</p>
+              <ul class="mode-perks">
+                <li>✓ Foco em Fisioterapia e Saúde</li>
+                <li>✓ Desafios de interpretação diagnóstica</li>
+                <li>✓ Ganhe o dobro de XP</li>
+              </ul>
+              <button class="primary-btn">Resolver Casos</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game In-Progress Play Screen -->
+        <div class="game-screen" id="game-screen-play" style="display:none;">
+          <!-- HUD Header -->
+          <div class="game-hud">
+            <div class="hud-left">
+              <button class="hud-btn-back" id="hud-back-btn" title="Voltar ao menu do jogo">← Sair</button>
+              <span class="hud-phase-label" id="hud-phase-name">Fase 1: A Célula</span>
+            </div>
+            <div class="hud-center">
+              <div class="hud-hearts" id="hud-hearts" title="Vidas restantes">
+                ❤️❤️❤️
+              </div>
+              <div class="hud-timer" id="hud-timer-container" style="display:none;">
+                ⏱️ <span id="hud-timer-val">60</span>s
+              </div>
+            </div>
+            <div class="hud-right">
+              <div class="hud-score">Score: <strong id="hud-score-val">0</strong></div>
+              <div class="hud-combo" id="hud-combo-badge" style="display:none;">🔥 2x COMBO</div>
+            </div>
+          </div>
+
+          <!-- Progress Bar inside the game -->
+          <div class="game-progress-track">
+            <div class="game-progress-fill" id="game-progress-bar" style="width: 0%;"></div>
+          </div>
+
+          <!-- Question Card -->
+          <div class="question-container" id="question-container">
+            <div class="question-card" id="question-card">
+              <div class="question-topic-pill" id="question-topic-pill">Tecido Epitelial</div>
+              <h3 class="question-text" id="question-text">Carregando pergunta...</h3>
+              <div class="question-meta" id="question-meta"></div>
+
+              <!-- Options Grid -->
+              <div class="options-grid" id="options-grid">
+                <!-- Option buttons dynamically generated -->
+              </div>
+
+              <!-- Feedback / Explanation Box -->
+              <div class="answer-feedback" id="answer-feedback" style="display:none;">
+                <div class="feedback-title" id="feedback-title">Correto! 🎉</div>
+                <p class="feedback-explanation" id="feedback-explanation">Explicação...</p>
+                <button class="primary-btn" id="next-question-btn">Próxima Pergunta →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Over / Victory Screen -->
+        <div class="game-screen" id="game-screen-result" style="display:none;">
+          <div class="result-modal-box">
+            <div class="result-icon" id="result-icon">🏆</div>
+            <h2 id="result-title">Vitória Histológica!</h2>
+            <p id="result-subtext">Você mandou muito bem e demonstrou domínio digno de quem vai gabaritar a prova.</p>
+            
+            <div class="result-stats-row">
+              <div class="result-stat-card">
+                <span class="stat-number" id="res-score">1450</span>
+                <span class="stat-desc">Pontos Marcados</span>
+              </div>
+              <div class="result-stat-card">
+                <span class="stat-number" id="res-accuracy">92%</span>
+                <span class="stat-desc">Precisão</span>
+              </div>
+              <div class="result-stat-card">
+                <span class="stat-number" id="res-xp">+180</span>
+                <span class="stat-desc">XP Ganho</span>
+              </div>
+            </div>
+
+            <div class="result-feedback-card" id="result-advice">
+              <!-- Personalized study tip based on errors -->
+            </div>
+
+            <div class="result-actions">
+              <button class="primary-btn" id="restart-game-btn">Jogar Novamente 🔄</button>
+              <button class="secondary-btn" id="back-to-menu-btn">Voltar ao Menu de Modos</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- ================= TAB: FLASHCARDS (ESTILO ANKI) ================= -->
+    <section class="tab-content" id="tab-flashcards">
+      <div class="flashcards-wrapper">
+        <div class="flashcards-header">
+          <div>
+            <h2>Flashcards de Repetição Espaçada (Estilo Anki)</h2>
+            <p>Clique no card para virar e ver a resposta. Avalie se achou Fácil, Médio ou Difícil para fixar na memória de longo prazo!</p>
+          </div>
+          <!-- Category Filter -->
+          <div class="flashcard-controls">
+            <select id="flashcard-category-select" class="custom-select">
+              <option value="all">Todas as Matérias</option>
+              <option value="celula">A Célula & Teoria Celular</option>
+              <option value="epitelial">Tecido Epitelial & Junções</option>
+              <option value="glandular">Glândulas & Secreção</option>
+              <option value="conjuntivo">Tecido Conjuntivo & Células</option>
+              <option value="cartilagem">Tecido Cartilaginoso</option>
+              <option value="osseo">Tecido Ósseo & Osteogênese</option>
+            </select>
+            <div class="flashcard-counter" id="flashcard-counter">1 / 25</div>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card Container -->
+        <div class="flashcard-stage">
+          <div class="flashcard-3d" id="active-flashcard">
+            <!-- Front Face -->
+            <div class="card-face card-front">
+              <div class="card-topic-tag" id="fc-front-topic">Tecido Epitelial</div>
+              <div class="card-prompt" id="fc-front-text">Qual é a diferença funcional entre os cílios e as microvilosidades?</div>
+              <div class="card-hint-text">💡 Clique em qualquer lugar do cartão para virar</div>
+            </div>
+            <!-- Back Face -->
+            <div class="card-face card-back">
+              <div class="card-topic-tag answer" id="fc-back-topic">Resposta Comprovada</div>
+              <div class="card-answer" id="fc-back-text">Resposta...</div>
+              <div class="card-analogy" id="fc-back-analogy">💡 <em>Mnemônico/Analogia:</em> ...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rating Buttons (Anki style) -->
+        <div class="flashcard-actions">
+          <button class="rate-btn diff" id="fc-btn-hard">
+            <span class="rate-emoji">😓</span> Difícil (Rever Logo)
+          </button>
+          <button class="rate-btn med" id="fc-btn-med">
+            <span class="rate-emoji">🤔</span> Bom / Médio
+          </button>
+          <button class="rate-btn easy" id="fc-btn-easy">
+            <span class="rate-emoji">🚀</span> Fácil (Memorizado!)
+          </button>
+        </div>
+
+        <div class="flashcard-bottom-nav">
+          <button class="secondary-btn" id="fc-prev-btn">← Anterior</button>
+          <button class="secondary-btn" id="fc-shuffle-btn">🔀 Embaralhar</button>
+          <button class="secondary-btn" id="fc-next-btn">Próximo →</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= TAB 6: GUIA MNEMÔNICO & MACETES ================= -->
+    <section class="tab-content" id="tab-mnemonicos">
+      <div class="mnemonics-container">
+        <div class="mnemonics-header">
+          <div class="header-badge">🧠 TRUQUES MENTAIS & MACETES DE PROVA</div>
+          <h2>Mnemônicos Infalíveis para Nunca Mais Esquecer</h2>
+          <p>Rimas, trocadilhos e macetes criados por professores e alunos para fixar nomes complicados no segundo período.</p>
+        </div>
+
+        <div class="mnemonics-grid" id="mnemonics-grid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
