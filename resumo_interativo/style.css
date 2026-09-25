@@ -2027,3 +2027,247 @@ strong {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   15. ESTUDO DIRIGIDO (21 QUESTÕES) STYLES
+   ========================================================================== */
+.mode-tag.purple {
+  background: rgba(168, 85, 247, 0.2);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+.ed-banner {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.15) 0%, rgba(219, 39, 119, 0.1) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.ed-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.estudo-dirigido-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.estudo-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.estudo-card:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 6px 24px rgba(168, 85, 247, 0.12);
+}
+
+.estudo-card.open {
+  border-color: rgba(168, 85, 247, 0.6);
+}
+
+.estudo-header {
+  padding: 18px 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.2s ease;
+}
+
+.estudo-header:hover {
+  background: rgba(168, 85, 247, 0.05);
+}
+
+.estudo-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.estudo-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ed-number-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #9333ea, #c084fc);
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.ed-module-pill {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.ed-module-pill.conjuntivo {
+  background: rgba(236, 72, 153, 0.15);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.3);
+}
+
+.estudo-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.estudo-toggle-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.estudo-card.open .estudo-toggle-btn {
+  transform: rotate(180deg);
+  background: rgba(168, 85, 247, 0.2);
+  color: #c084fc;
+}
+
+.estudo-content {
+  display: none;
+  padding: 0 22px 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  animation: fadeIn 0.25s ease;
+}
+
+.estudo-card.open .estudo-content {
+  display: block;
+}
+
+.estudo-question-box {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(0, 0, 0, 0.15);
+  border-left: 3px solid #9333ea;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.estudo-gabarito-box {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: var(--radius-md);
+}
+
+.gabarito-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.gabarito-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gabarito-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  white-space: pre-line;
+}
+
+.estudo-keypoints {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.keypoints-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.keypoint-chip {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.estudo-footer-actions {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.estudo-quiz-btn {
+  background: linear-gradient(135deg, #9333ea, #7c3aed);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.estudo-quiz-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.35);
+}
+

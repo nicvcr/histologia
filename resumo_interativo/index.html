@@ -61,6 +61,9 @@
         <button class="nav-tab" data-tab="tab-mnemonicos" id="tab-btn-mnemonicos">
           <span class="tab-icon">🧠</span> Macetes & Mnemônicos
         </button>
+        <button class="nav-tab" data-tab="tab-estudo-dirigido" id="tab-btn-estudo-dirigido">
+          <span class="tab-icon">📝</span> Estudo Dirigido (21 Q)
+        </button>
         <a href="../TBL/index.html" class="nav-tab" style="text-decoration:none; background: linear-gradient(135deg, #ef4444 0%, #f59e0b 50%, #10b981 100%); color: #fff; font-weight: 700; box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);" title="Acessar Especial TBL: Tecido Muscular & Reparo Tecidual">
           <span class="tab-icon">🔥</span> Especial TBL: Músculo & Reparo
         </a>
@@ -101,7 +104,40 @@
       </div>
     </section>
 
+    <!-- ================= TAB: ESTUDO DIRIGIDO (21 QUESTÕES & GABARITOS) ================= -->
+    <section class="tab-content" id="tab-estudo-dirigido">
+      <div class="content-header-banner ed-banner">
+        <div class="banner-text">
+          <div class="header-badge-pill">📝 ROTEIROS OFICIAIS DE FIXAÇÃO</div>
+          <h2>Estudo Dirigido: 21 Questões & Gabaritos Comentados</h2>
+          <p>Todas as questões oficiais dos roteiros de <strong>Tecido Epitelial (11 Questões)</strong> e <strong>Tecido Conjuntivo (10 Questões)</strong> com gabaritos detalhados, palavras-chave para a prova e modo de treino interativo.</p>
+        </div>
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="ed-search-input" placeholder="Buscar no estudo dirigido (ex: avascular, desmossomo, escorbuto, mastócito)..." autocomplete="off">
+          <button class="clear-search-btn" id="ed-search-clear" style="display:none;">✕</button>
+        </div>
+      </div>
 
+      <!-- Quick Module Filter Pills & Action Bar -->
+      <div class="ed-toolbar">
+        <div class="lecture-filter-pills" id="ed-filter-pills">
+          <button class="filter-pill active" data-ed-filter="all">Todas as 21 Questões</button>
+          <button class="filter-pill" data-ed-filter="epitelial">Tecido Epitelial (11 Q)</button>
+          <button class="filter-pill" data-ed-filter="conjuntivo">Tecido Conjuntivo (10 Q)</button>
+        </div>
+        <div class="ed-actions">
+          <button class="primary-btn" id="ed-start-quiz-btn">
+            🎮 Responder no Modo Game
+          </button>
+        </div>
+      </div>
+
+      <!-- Questions List Container -->
+      <div class="estudo-dirigido-grid" id="estudo-dirigido-container">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </section>
 
     <!-- ================= TAB: BATTLE ARENA (O JOGO) ================= -->
     <section class="tab-content" id="tab-game">
@@ -156,6 +192,20 @@
                 <li>✓ Ganhe o dobro de XP</li>
               </ul>
               <button class="primary-btn">Resolver Casos</button>
+            </div>
+
+            <!-- Mode 4: Estudo Dirigido (21 Questões) -->
+            <div class="mode-card" data-mode="estudo-dirigido" id="mode-estudo-btn">
+              <div class="mode-icon">📝</div>
+              <div class="mode-tag purple">Fixação de Prova</div>
+              <h3>Estudo Dirigido (21 Questões)</h3>
+              <p>Perguntas oficiais dos roteiros de Tecido Epitelial e Tecido Conjuntivo com os gabaritos e explicações detalhadas.</p>
+              <ul class="mode-perks">
+                <li>✓ 11 Questões de Tecido Epitelial</li>
+                <li>✓ 10 Questões de Tecido Conjuntivo</li>
+                <li>✓ 100% alinhado aos roteiros oficiais</li>
+              </ul>
+              <button class="primary-btn">Praticar Estudo Dirigido</button>
             </div>
           </div>
         </div>
@@ -259,6 +309,7 @@
           <div class="flashcard-controls">
             <select id="flashcard-category-select" class="custom-select">
               <option value="all">Todas as Matérias</option>
+              <option value="estudo-dirigido">📝 Estudo Dirigido (21 Q)</option>
               <option value="celula">A Célula & Teoria Celular</option>
               <option value="epitelial">Tecido Epitelial & Junções</option>
               <option value="glandular">Glândulas & Secreção</option>

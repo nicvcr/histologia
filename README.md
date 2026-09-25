@@ -31,6 +31,11 @@ Aplicação web interativa para estudo intensivo e preparação para as provas d
 ### 4. 🧠 Macetes & Mnemônicos
 - Dicas mnemônicas, analogias de videogame e trocadilhos didáticos para nunca mais esquecer os nomes e detalhes histológicos nas provas práticas e teóricas.
 
+### 5. 📝 Estudo Dirigido Oficial (21 Questões & Gabaritos Comentados)
+- **Tecido Epitelial (11 Questões)**: Celularidade, avascularidade, 3 folhetos embrionários, membrana basal, junções celulares (oclusão, adesão, desmossomos, GAP), especializações apicais (cílios vs microvilosidades), classificação morfológica, formação glandular, modos de secreção, urotélio e cicatrização.
+- **Tecido Conjuntivo (10 Questões)**: Componentes fundamentais e MEC, tecido adiposo unilocular vs multilocular (termogenina/UCP-1), conjuntivo frouxo vs denso (modelado e não modelado), mastócitos e hipersensibilidade tipo I, síntese de colágeno e papel da Vitamina C, patogênese do escorbuto, biomecânica de tendões, macrófagos e denominações orgânicas, substância fundamental amorfa e tecido mucoso (Gelatina de Wharton).
+- **Modos de Treino**: Visualização em lista interativa com acordeão, filtro por módulo e busca em tempo real, novo modo na **Battle Arena** e flashcards dedicados.
+
 ---
 
 ## 🛠️ Tecnologias Utilizadas
